@@ -1,0 +1,23 @@
+{
+  "name": "group-todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
+    "server": "node ./server/server.js",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Farnooshmo/group-todo-app.git"
+  },
+ 
+  "bugs": {
+    "url": "https://github.com/Farnooshmo/group-todo-app/issues"
+  },
+  "homepage": "https://github.com/Farnooshmo/group-todo-app#readme",
+  
+  "dependencies": {
+    "if-env": "^1.0.4"
+  }
+}
