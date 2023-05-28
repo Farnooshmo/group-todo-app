@@ -15,7 +15,7 @@ const App = () => {
       console.error(err);
     }
   };
-
+//slightly modified to run the server
   useEffect(() => {
     getData();
   }, []);
