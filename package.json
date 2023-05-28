@@ -11,12 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/Farnooshmo/group-todo-app.git"
   },
- 
   "bugs": {
     "url": "https://github.com/Farnooshmo/group-todo-app/issues"
   },
   "homepage": "https://github.com/Farnooshmo/group-todo-app#readme",
-  
   "dependencies": {
     "if-env": "^1.0.4"
   }
