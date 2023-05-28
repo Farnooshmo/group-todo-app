@@ -79,7 +79,7 @@ const Modal = ({ modal, setShowModal, getData, task }) => {
           <input
             className={mode}
             type="submit"
-            onClick={editMode ? "editData" : postData}
+            onClick={editMode ? editData : postData}
           />
         </form>
       </div>
