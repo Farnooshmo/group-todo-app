@@ -1,4 +1,8 @@
 import ListHeader from './components/ListHeader'
+import { useEffect, useState } from "react";
+import ListItem from "./components/ListItem";
+
+
 
 const App = () => {
 const userEmail = "farnooshmoayeri@gmail.com";
@@ -9,8 +13,8 @@ const getData =async() =>{
     const response = await fetch(`http://localhost:9090/todos/${userEmail}`)
     const json = response.json()
     setTasks(json)
-  } catch (error) { 
-    cosole.error(err)
+  } catch (err) { 
+    console.error(err)
   }
 }
 
