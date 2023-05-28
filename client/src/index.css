@@ -59,7 +59,7 @@ body {
   background-color: rgb(255, 175, 163);
   color: rgb(255, 255, 255);
 }
-/* create button */
+/* create-button */
 
 .create {
   border: 1.5px solid rgb(108, 115, 148);
@@ -73,6 +73,24 @@ body {
 
 .create:active {
   background-color: rgb(108, 115, 148);
+  color: rgb(255, 255, 255);
+}
+/* sign out button */
+
+.signout {
+  border: 1.5px solid rgb(255, 175, 163);
+  background-color: rgb(255, 175, 163) !important;
+  color: rgb(234, 234, 234);
+}
+
+.signout:hover {
+  background-color: rgb(175, 94, 94) !important;
+  border: 1.5px solid rgb(175, 94, 94);
+}
+
+.signout:active {
+  border: 1.5px solid rgb(175, 81, 81) !important;
+  background-color: rgb(175, 81, 81) !important;
   color: rgb(255, 255, 255);
 }
 
