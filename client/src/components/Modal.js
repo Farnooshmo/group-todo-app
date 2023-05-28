@@ -37,7 +37,7 @@ const Modal = ({ modal, setShowModal, getData, task }) => {
     }
   };
 
-  const handleChange = () => {
+  const handleChange = (e) => {
     // console.log("changing!", e);
     const { name, value } = e.target;
 
