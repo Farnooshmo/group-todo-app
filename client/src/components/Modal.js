@@ -1,19 +1,19 @@
 import { useState } from "react";
 
-const Modal = ({ modal, setShowModal, getData, task }) => {
+const Modal = ({ mode, setShowModal, getData, task }) => {
   // const mode = "create";
   const editMode = mode === "edit" ? true : false;
   const [data, setData] = useState({
-    user_email: editMode ? task.user_email : "farnoosh@test.com",
+    user_email: editMode ? task.user_email : "farnooshmoayeri@gmail.com",
     title: editMode ? task.title : null,
     progress: editMode ? task.progress : 50,
-    date: editMode ? "" : new Date(),
+    date: editMode ? task.data : new Date(),
   });
 
   const postData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/todos`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -28,10 +28,23 @@ const Modal = ({ modal, setShowModal, getData, task }) => {
       console.error(err);
     }
   };
+
   const editData = async (e) => {
     e.preventDefault();
     try {
-      await fetch(`http:localhost:8000/todos/${task.id}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_SERVERURL}/todos/${task.id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }
+      );
+      if (response.status === 200) {
+        console.log("WORKED");
+        setShowModal(false);
+        getData();
+      }
     } catch (err) {
       console.error(err);
     }
@@ -40,13 +53,13 @@ const Modal = ({ modal, setShowModal, getData, task }) => {
   const handleChange = (e) => {
     // console.log("changing!", e);
     const { name, value } = e.target;
-
     setData((data) => ({
       ...data,
       [name]: value,
     }));
     console.log(data);
   };
+
   return (
     <div className="overlay">
       <div className="modal">
@@ -65,7 +78,7 @@ const Modal = ({ modal, setShowModal, getData, task }) => {
             onChange={handleChange}
           />
           <br />
-          <label for="range">Drag to select your current progress</label>
+          <label htmlFor="range">Drag to select your current progress</label>
           <input
             required
             type="range"
