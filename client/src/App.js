@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import ListHeader from "./components/ListHeader";
 import ListItem from "./components/ListItem";
+import Auth from "./components/Auth";
 
 const App = () => {
   const userEmail = "farnooshmoayeri@gmail.com";
   const [tasks, setTasks] = useState(null);
+
+  const AuthToken = false;
 
   const getData = async () => {
     try {
@@ -20,7 +23,9 @@ const App = () => {
 
   //slightly modified to run the server
   useEffect(() => {
-    getData();
+    if (AuthToken) {
+      getData();
+    }
   }, []);
 
   const sortedTasks = tasks?.sort(
@@ -28,10 +33,15 @@ const App = () => {
   );
   return (
     <div className="app">
-      <ListHeader listName={"🏝️ Holiday tick list"} getData={getData} />
-      {sortedTasks?.map((task) => (
-        <ListItem key={task.id} task={task} getData={getData} />
-      ))}
+      {!AuthToken && <Auth />}
+      {AuthToken && (
+        <>
+          <ListHeader listName={"🏝️ Holiday tick list"} getData={getData} />
+          {sortedTasks?.map((task) => (
+            <ListItem key={task.id} task={task} getData={getData} />
+          ))}{" "}
+        </>
+      )}
     </div>
   );
 };
