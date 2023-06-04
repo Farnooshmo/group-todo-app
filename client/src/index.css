@@ -190,7 +190,7 @@ input {
 .auth-containet-box form {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 350px;
   padding: 20px;
 }
 
