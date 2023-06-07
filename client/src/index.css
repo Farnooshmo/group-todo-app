@@ -180,14 +180,14 @@ input {
   margin: 5px;
 }
 
-.auth-containet-box {
+.auth-container-box {
   width: 500px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
 }
 
-.auth-containet-box form {
+.auth-container-box form {
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -202,4 +202,17 @@ input {
   border: none;
   padding: 10px;
   color: rgb(35, 38, 47);
+}
+
+.copyright {
+  font-size: 13px;
+  margin: 10px;
+  color: rgb(114, 114, 144);
+}
+
+.user-email {
+  float: right;
+  font-size: 13px;
+  margin: 10px;
+  color: rgb(114, 114, 144);
 }
